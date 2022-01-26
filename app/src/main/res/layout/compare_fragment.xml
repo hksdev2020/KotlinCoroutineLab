@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/vCompareTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Compare"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/vStateAndSharedFlowButton"
+        app:layout_constraintTop_toBottomOf="@+id/vCompareTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/vLiveDataButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/dark_green"
+                android:padding="10dp"
+                android:text="Fire LiveData"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/vLiveDataResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LiveData result" />
+
+            <TextView
+                android:id="@+id/vStateFlowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/dark_green"
+                android:padding="10dp"
+                android:text="Fire StateFlow"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/vStateFlowResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="StateFlow result" />
+
+            <TextView
+                android:id="@+id/vFlowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/dark_green"
+                android:padding="10dp"
+                android:text="Fire Flow"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/vFlowResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flow result" />
+
+
+
+            <TextView
+                android:id="@+id/vSharedFlowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/dark_green"
+                android:padding="10dp"
+                android:text="Fire SharedFlow"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/vSharedFlowResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SharedFlow result" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/vStateAndSharedFlowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/dark_green"
+        android:padding="10dp"
+        android:text="StateFlow + SharedFlow"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

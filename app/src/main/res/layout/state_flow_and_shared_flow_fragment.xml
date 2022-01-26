@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/vCollect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textSize="21sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/vCollectLatest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="collecting latest..."
+        android:textSize="21sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vCollect" />
+
+    <TextView
+        android:id="@+id/vCollectWithFlowOperator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="collecting with flow operator..."
+        android:textSize="21sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vCollectLatest" />
+
+    <TextView
+        android:id="@+id/vCollectWithFlowTerminalOperator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="collecting with flow terminal operator..."
+        android:textSize="21sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vCollectWithFlowOperator" />
+
+
+    <Button
+        android:id="@+id/vIncrement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="increment"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vCollectWithFlowTerminalOperator"/>
+
+    <Button
+        android:id="@+id/vFireSharedFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fire Shared Flow"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vIncrement"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

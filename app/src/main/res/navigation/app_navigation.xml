@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/compareFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="hks.dev.kotlincoroutinelab.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="hks.dev.kotlincoroutinelab.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/compareFragment"
+        android:name="hks.dev.kotlincoroutinelab.compare.CompareFragment"
+        android:label="CompareFragment" >
+        <action
+            android:id="@+id/action_compareFragment_to_stateFlowAndSharedFlowFragment"
+            app:destination="@id/stateFlowAndSharedFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stateFlowAndSharedFlowFragment"
+        android:name="hks.dev.kotlincoroutinelab.stateshared.StateFlowAndSharedFlowFragment"
+        android:label="state_flow_and_shared_flow_fragment"
+        tools:layout="@layout/state_flow_and_shared_flow_fragment" />
+</navigation>
