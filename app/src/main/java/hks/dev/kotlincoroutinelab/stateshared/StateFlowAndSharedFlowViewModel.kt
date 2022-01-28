@@ -37,10 +37,10 @@ class StateFlowAndSharedFlowViewModel : ViewModel() {
     }
 
 
-    //hot flow
+    //hot flow: no subscribers = event will be lost
     //state flow survive configuration change
-    //screen rotated, value will be triggered again, notify all observers
-    //for single live event for snackbar / navigation, use share flow
+    //screen rotate: value will be triggered again, notify all observers. mainly used in ui
+    //default replay = 1, replay = replay how many items already in flow
     private val _stateFlow = MutableStateFlow<Int>(0)
     val stateFlow = _stateFlow.asStateFlow()
     fun incrementCounter() {
@@ -48,9 +48,8 @@ class StateFlowAndSharedFlowViewModel : ViewModel() {
     }
 
 
-    //both hot flow: no subscribers = event will be lost
-    //state flow: trigger again after rotate screen
-    //shared flow: not trigger again after rotate screen
+    //hot flow: no subscribers = event will be lost
+    //screen rotate: value will NOT be triggered again, for functions like snachbar / navigation
     private val _sharedFlow = MutableSharedFlow<Int>(
         //replay = 2 //cache how many event, will replay n values when new subscribers subscribe
     ) //no default value

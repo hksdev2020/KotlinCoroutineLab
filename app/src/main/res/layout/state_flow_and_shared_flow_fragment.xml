@@ -10,9 +10,9 @@
         android:id="@+id/vCollect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Hello World!"
         android:textSize="21sp"
-        android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -52,22 +52,23 @@
         android:id="@+id/vIncrement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="increment"
         android:layout_marginTop="10dp"
+        android:text="increment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vCollectWithFlowTerminalOperator"/>
+        app:layout_constraintTop_toBottomOf="@+id/vCollectWithFlowTerminalOperator" />
 
-    <Button
-        android:id="@+id/vFireSharedFlow"
+    <TextView
+        android:id="@+id/vCompareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fire Shared Flow"
-        android:layout_marginVertical="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vIncrement"/>
-
+        android:background="@color/dark_green"
+        android:padding="10dp"
+        android:text="Compare now"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

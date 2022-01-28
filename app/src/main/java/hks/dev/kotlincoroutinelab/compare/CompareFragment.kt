@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import hks.dev.kotlincoroutinelab.R
+import hks.dev.kotlincoroutinelab.stateshared.collectLatestLifecycleFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -69,19 +70,16 @@ class CompareFragment : Fragment() {
             vLiveDataResult.turnRed()
         })
         //stateFlow subscribe
-        lifecycleScope.launchWhenStarted { //must be in coroutine
-            viewModel.stateFlow.collectLatest {
+        collectLatestLifecycleFlow(viewModel.stateFlow) {
                 vStateFlowResult.text = "$it"
                 vStateFlowResult.turnRed()
                 Snackbar.make(view, "StateFlowTriggered", Snackbar.LENGTH_SHORT).show()
-            }
         }
+
         //sharedFlow subscribe
-        lifecycleScope.launchWhenStarted { //must be in coroutine
-            viewModel.sharedFlow.collectLatest {
+        collectLatestLifecycleFlow(viewModel.sharedFlow) {
                 vSharedFlowResult.text = "$it"
                 vSharedFlowResult.turnRed()
-            }
         }
 
         //redirect

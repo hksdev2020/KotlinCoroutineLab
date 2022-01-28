@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation"
-    app:startDestination="@id/compareFragment">
+    app:startDestination="@id/stateFlowAndSharedFlowFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -35,5 +35,9 @@
         android:id="@+id/stateFlowAndSharedFlowFragment"
         android:name="hks.dev.kotlincoroutinelab.stateshared.StateFlowAndSharedFlowFragment"
         android:label="state_flow_and_shared_flow_fragment"
-        tools:layout="@layout/state_flow_and_shared_flow_fragment" />
+        tools:layout="@layout/state_flow_and_shared_flow_fragment" >
+        <action
+            android:id="@+id/action_stateFlowAndSharedFlowFragment_to_compareFragment"
+            app:destination="@id/compareFragment" />
+    </fragment>
 </navigation>
