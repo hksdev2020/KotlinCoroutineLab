@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.Navigation
@@ -89,40 +90,41 @@ class StateFlowAndSharedFlowFragment : Fragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                //collect flow with flow operator
-                viewModel.countDownFlow
-                    .filter { time ->
-                        time % 2 == 0
-                    }
-                    .map { time ->
-                        time * time
-                    }
-                    .onEach { time ->
-                        println("cold flow onEach operator: $time")
-                    }
-                    .collect {
-                        vCollectWithFlowOperator.text = "collect with cold flow operator onEach: $it"
-                    }
+            //collect flow with flow operator
+            viewModel.countDownFlow.flowWithLifecycle(
+                lifecycle,
+                Lifecycle.State.STARTED
+            )
+                .filter { time ->
+                    time % 2 == 0
+                }
+                .map { time ->
+                    time * time
+                }
+                .onEach { time ->
+                    println("cold flow onEach operator: $time")
+                }
+                .collect {
+                    vCollectWithFlowOperator.text = "collect with cold flow operator onEach: $it"
+                }
 
 
-                //flow with flow terminal operator
-                val count = viewModel.countDownFlow
-                    .filter { time ->
-                        time % 2 == 0
-                    }
-                    .map { time ->
-                        time * time
-                    }
-                    .onEach { time ->
-                        println("onEach cold flow terminal operator: $time")
-                    }
-                    .count {
-                        it % 2 == 0
-                    }
-                vCollectWithFlowTerminalOperator.text =
-                    "cold flow with flow terminal operator count: $count"
-            }
+            //flow with flow terminal operator
+            val count = viewModel.countDownFlow
+                .filter { time ->
+                    time % 2 == 0
+                }
+                .map { time ->
+                    time * time
+                }
+                .onEach { time ->
+                    println("onEach cold flow terminal operator: $time")
+                }
+                .count {
+                    it % 2 == 0
+                }
+            vCollectWithFlowTerminalOperator.text =
+                "cold flow with flow terminal operator count: $count"
         }
 
 
